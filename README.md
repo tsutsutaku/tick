@@ -24,12 +24,13 @@ Most TODO CLIs are built for humans. **tick** is built for both.
 ## Installation
 
 ```bash
-# Clone and install globally
-git clone https://github.com/tsutsutaku/tick.git
-cd tick
-npm install
-npm run build
-npm link
+# npm (recommended)
+npm install -g @tsutsutaku/tick
+```
+
+```bash
+# GitHub
+npm install -g github:tsutsutaku/tick
 ```
 
 ```bash
