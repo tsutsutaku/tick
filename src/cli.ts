@@ -6,6 +6,7 @@ import { runDone } from "./commands/done.js";
 import { runEdit } from "./commands/edit.js";
 import { runDelete } from "./commands/delete.js";
 import { runStats } from "./commands/stats.js";
+import { runUpgrade } from "./commands/upgrade.js";
 import type { Priority, Status } from "./types.js";
 
 interface GlobalOpts {
@@ -88,6 +89,15 @@ export function buildCli(): Command {
     .action((_localOpts: Record<string, never>, cmd: Command) => {
       const global = cmd.optsWithGlobals<GlobalOpts>();
       runStats({ dataPath: global.dataPath, json: global.json });
+    });
+
+  // upgrade: (localOpts, cmd)
+  program
+    .command("upgrade")
+    .description("最新版にアップグレードする")
+    .action((_localOpts: Record<string, never>, cmd: Command) => {
+      const global = cmd.optsWithGlobals<GlobalOpts>();
+      runUpgrade({ json: global.json });
     });
 
   return program;
